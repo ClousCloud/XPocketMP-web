@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 Not Found</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        html {
+            font-size: 62.5%;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            width: 100%;
+            min-height: 100vh;
+            overflow-x: hidden;
+            background-color: #0b0b0b;
+            color: white;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 2rem 5%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+            transition: background 0.3s ease;
+        }
+
+        .logo {
+            font-size: 3rem;
+            color: #ff4c4c;
+            font-weight: 900;
+            cursor: pointer;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-size: 1.8rem;
+            color: white;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            transition: 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
+
+        nav a:hover, nav a.active {
+            color: #ff4c4c;
+            border-bottom: 3px solid #ff4c4c;
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 2.5rem;
+            cursor: pointer;
+            color: white;
+        }
+
+        .hero {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            height: 100vh;
+            padding-top: 10rem;
+            background: url('https://via.placeholder.com/1920x1080') no-repeat center center/cover;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        .hero h1 {
+            font-size: 5rem;
+            font-weight: 700;
+            color: white;
+            z-index: 1;
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 span {
+            color: lime;
+        }
+
+        .hero h3 {
+            font-size: 2.5rem;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            z-index: 1;
+            color: #dcdcdc;
+        }
+
+        .hero p {
+            font-size: 1.8rem;
+            z-index: 1;
+            color: #dcdcdc;
+            margin-bottom: 3rem;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1.5rem;
+            z-index: 1;
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 2rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #ff4c4c;
+        }
+
+        .features, .team, .contact {
+            padding: 5rem 10%;
+            text-align: center;
+        }
+
+        .features {
+            background-color: #1b1b1b;
+        }
+
+        .team {
+            background-color: #0b0b0b;
+        }
+
+        .contact {
+            background-color: #1b1b1b;
+        }
+
+        footer {
+            padding: 2rem 10%;
+            text-align: center;
+            background-color: #0b0b0b;
+            color: white;
+        }
+
+        footer p {
+            font-size: 1.4rem;
+        }
+
+        footer a {
+            color: lime;
+        }
+
+        @media(max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            nav {
+                display: none;
+                position: absolute;
+                top: 100%;
+                right: 0;
+                background: #1c1c1c;
+                flex-direction: column;
+                padding: 2rem;
+                width: 100%;
+            }
+
+            nav.active {
+                display: flex;
+            }
+
+            nav a {
+                margin: 1rem 0;
+                font-size: 2rem;
+            }
+
+            .features, .team {
+                grid-template-columns: 1fr;
+            }
+
+            .contact form {
+                width: 100%;
+            }
+
+            .feature-box, .team-member {
+                width: 100%;
+            }
+
+            .hero {
+                padding-top: 12rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a class="logo">XPocketMP</a>
+        <div class="hamburger" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+        <nav>
+            <a href="/" class="active">Home</a>
+            <a href="#">About</a>
+            <a href="features">Features</a>
+            <a href="building">Building</a>
+            <a href="contact">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>404 <span>Not Found</span></h1>
+        <h3>Oops! The page you're looking for doesn't exist.</h3>
+        <p>It might have been moved or deleted. Return to the <a href="/">home page</a>.</p>
+    </section>
+
+    <script>
+        function toggleMenu() {
+            const nav = document.querySelector('nav');
+            nav.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

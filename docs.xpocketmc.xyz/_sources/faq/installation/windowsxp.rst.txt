@@ -1,0 +1,5 @@
+Can I install XPocketMP on Windows XP?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+XPocketMP can not be installed on Windows XP.
+Is it an old computer? Try Linux!

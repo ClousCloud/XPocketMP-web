@@ -1,0 +1,9 @@
+XPocketMP.phar not found when running server
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Troubleshooting tips:
+
+- Make sure you downloaded a XPocketMP phar file and put it in your server folder.
+- Check that the name is exactly ``XPocketMP.phar`` - no spaces or any other artifacts.
+- Check that the name casing is correct. ``XPocketMP.phar`` will work, but ``XPocketMP.phar`` won't.
+- Check that the file extension is not duplicated. ``XPocketMP.phar.phar`` won't work.

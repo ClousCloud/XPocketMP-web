@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Crashes &mdash; XPocketMP Documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css?v=fb5205af" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=3304f9e4"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Using the GitHub Issue Tracker" href="github-issues.html" />
+    <link rel="prev" title="Why PHP?" href="../faq/about/why-php.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            XPocketMP
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation &amp; Updating</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic-usage.html">Basic usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resourcepacks.html">Resource Packs &amp; Behaviour Packs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../permissions.html">Permissions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contact.html">Contact and Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../links.html">Useful Links</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Frequently Asked Questions &amp; Common Issues</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../faq/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/connecting.html">Connecting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/playing.html">Playing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/plugins.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/about.html">About XPocketMP</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Issues, Bugs and Crashes</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Crashes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#reporting-a-crash">Reporting a crash</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-s-in-a-crashdump-file">What’s in a crashdump file?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="github-issues.html">Using the GitHub Issue Tracker</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developer Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../developer-resources.html">Developer Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer-resources.html#external-development-resources">External development resources</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">XPocketMP</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Crashes</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/issues/crashes.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="crashes">
+<span id="id1"></span><h1>Crashes<a class="headerlink" href="#crashes" title="Link to this heading"></a></h1>
+<p>XPocketMP may crash for a number of reasons:</p>
+<ul class="simple">
+<li><p>Bad / faulty plugins.</p></li>
+<li><p>Running out of memory due to not enough or memory leak.</p></li>
+<li><p>Bugs within the XPocketMP which are unrecoverable.</p></li>
+</ul>
+<p>In all of the above cases, a crashdump file will be generated in the <code class="docutils literal notranslate"><span class="pre">crashdumps</span></code> folder of your server.</p>
+<section id="reporting-a-crash">
+<h2>Reporting a crash<a class="headerlink" href="#reporting-a-crash" title="Link to this heading"></a></h2>
+<p>Crash reports are automatically submitted to our <a class="reference external" href="https://crash.pmmp.io">Crash Archive</a> if your server is connected to the internet.</p>
+<p>If successful, you will see a message like this in the server log:
+<code class="docutils literal notranslate"><span class="pre">[18:34:15]</span> <span class="pre">[Server</span> <span class="pre">thread/EMERGENCY]:</span> <span class="pre">The</span> <span class="pre">crash</span> <span class="pre">dump</span> <span class="pre">has</span> <span class="pre">been</span> <span class="pre">automatically</span> <span class="pre">submitted</span> <span class="pre">to</span> <span class="pre">the</span> <span class="pre">Crash</span> <span class="pre">Archive.</span> <span class="pre">You</span> <span class="pre">can</span> <span class="pre">view</span> <span class="pre">it</span> <span class="pre">on</span> <span class="pre">https://crash.pmmp.io/view/5555</span> <span class="pre">or</span> <span class="pre">use</span> <span class="pre">the</span> <span class="pre">ID</span> <span class="pre">#5555.</span></code></p>
+<p>If you want to submit a crash report manually, you can do so at the <a class="reference external" href="https://crash.pmmp.io/submit">submit page</a>.</p>
+<p>Crashdumps are searched and investigated regularly by the development team, so it is not necessary to submit an issue if your crashdump is in the <a class="reference external" href="https://crash.pmmp.io">Crash Archive</a>.
+Nonetheless, you can create one anyway at the <a class="reference external" href="https://github.com/pmmp/XPocketMP/issues/new/choose">issues page</a> if you want to give us extra information or draw our attention to the issue.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you want to opt-out of automatic crashdump submission, you can disable it using the <code class="docutils literal notranslate"><span class="pre">auto-report.enabled</span></code> setting in your <code class="docutils literal notranslate"><span class="pre">XPocketMP.yml</span></code>.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>When reporting a crash in XPocketMP, a crashdump file <strong>must</strong> be provided or we will not be able to help you.</p>
+</div>
+</section>
+<section id="what-s-in-a-crashdump-file">
+<h2>What’s in a crashdump file?<a class="headerlink" href="#what-s-in-a-crashdump-file" title="Link to this heading"></a></h2>
+<p>Crashdumps are <code class="docutils literal notranslate"><span class="pre">.log</span></code> files which contain important information which is used to identify, reproduce, and fix bugs. They contain human-readable information about the crash (the top part) and a machine-readable part which is used by our <a class="reference external" href="https://crash.pmmp.io">Crash Archive</a>.</p>
+<p>A crashdump may contain the following information:</p>
+<ul class="simple">
+<li><p>Error message, file name, line number and error type</p></li>
+<li><p>A stack trace of the error, which helps identify where the crash happened</p></li>
+<li><p>A sample of code around the site of the crash, which helps to identify where the crash happened</p></li>
+<li><p>Information about your operating system version and hardware (such as CPU model)</p></li>
+<li><p>List of plugins installed on the server</p></li>
+<li><p>Version of XPocketMP which you are using</p></li>
+<li><p>The contents of your <code class="docutils literal notranslate"><span class="pre">XPocketMP.yml</span></code> and <code class="docutils literal notranslate"><span class="pre">server.properties</span></code> file (sensitive information like passwords are redacted)</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can fine-tune what information is placed in crashdumps in your <code class="docutils literal notranslate"><span class="pre">XPocketMP.yml</span></code> file under the <code class="docutils literal notranslate"><span class="pre">auto-report</span></code> section.</p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2014-2024, XPocketMP Team.
+      <span class="lastupdated">Last updated on Aug 02, 2024.
+      </span></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

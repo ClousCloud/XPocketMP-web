@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Using the XPocketMP\event\Listener interface &mdash; XPocketMP Documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/theme_overrides.css?v=fb5205af" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=3304f9e4"></script>
+        <script src="../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Event handler priority" href="priority.html" />
+    <link rel="prev" title="Events" href="../events.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            XPocketMP
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation &amp; Updating</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basic-usage.html">Basic usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugins.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resourcepacks.html">Resource Packs &amp; Behaviour Packs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../permissions.html">Permissions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contact.html">Contact and Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../links.html">Useful Links</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Frequently Asked Questions &amp; Common Issues</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../faq/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq/connecting.html">Connecting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq/playing.html">Playing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq/plugins.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq/about.html">About XPocketMP</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Issues, Bugs and Crashes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../issues/crashes.html">Crashes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../issues/github-issues.html">Using the GitHub Issue Tracker</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developer Resources</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../developer-resources.html">Developer Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../api-version-spec.html">API versioning</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../events.html">Events</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../events.html#how-it-works">How it works</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../events.html#handling-events">Handling events</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Using the <code class="docutils literal notranslate"><span class="pre">XPocketMP\event\Listener</span></code> interface</a></li>
+<li class="toctree-l4"><a class="reference internal" href="priority.html">Event handler priority</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../inventory-transactions.html">Inventory Transactions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-formats.html">Plugin formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-manifest.html"><code class="docutils literal notranslate"><span class="pre">plugin.yml</span></code> fields</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threading-in-php-wtf.html">Threading in PHP - WTF?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../updating-minecraft-protocol.html">Implementing new Minecraft version support in XPocketMP</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer-resources.html#external-development-resources">External development resources</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">XPocketMP</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../developer-resources.html">Developer Reference</a></li>
+          <li class="breadcrumb-item"><a href="../events.html">Events</a></li>
+      <li class="breadcrumb-item active">Using the <code class="docutils literal notranslate"><span class="pre">XPocketMP\event\Listener</span></code> interface</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/developer-reference/events/listener-interface.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="using-the-XPocketMP-event-listener-interface">
+<span id="listener-interface"></span><h1>Using the <code class="docutils literal notranslate"><span class="pre">XPocketMP\event\Listener</span></code> interface<a class="headerlink" href="#using-the-XPocketMP-event-listener-interface" title="Link to this heading"></a></h1>
+<p>This interface is implemented by classes which want to have matching methods within themselves (and their child classes) to be treated as event handlers on registration. Every method in a <code class="docutils literal notranslate"><span class="pre">Listener</span></code>-implementing class is checked as a candidate event handler.</p>
+<section id="how-does-it-work">
+<h2>How does it work?<a class="headerlink" href="#how-does-it-work" title="Link to this heading"></a></h2>
+<p>When you call <code class="docutils literal notranslate"><span class="pre">registerEvents()</span></code>, XPocketMP does some complicated <a class="reference external" href="https://www.php.net/manual/en/book.reflection.php">reflection</a> magic to examine the functions declared in the given listener object.
+It then adds any function that meets the criteria below to the handler list for the desired event.</p>
+<p>The type of event handled by a function is decided by the type of the first parameter.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Handler function names are <strong>completely ignored</strong>. Therefore, it doesn’t matter whether your handler is called <code class="docutils literal notranslate"><span class="pre">onPlayerJoin()</span></code> or <code class="docutils literal notranslate"><span class="pre">iEatEnglishForBreakfast()</span></code>; as long as the function meets the required criteria described below, it will be registered.</p>
+</div>
+</section>
+<section id="what-counts-as-a-handler-method">
+<h2>What counts as a handler method?<a class="headerlink" href="#what-counts-as-a-handler-method" title="Link to this heading"></a></h2>
+<p>To be considered as an event handler candidate, a <code class="docutils literal notranslate"><span class="pre">Listener</span></code> method MUST meet the below criteria:</p>
+<ul class="simple">
+<li><p>MUST accept exactly ONE parameter</p></li>
+<li><p>This one parameter MUST be a class extending <code class="docutils literal notranslate"><span class="pre">XPocketMP\event\Event</span></code> which is either non-abstract or declares the <code class="docutils literal notranslate"><span class="pre">&#64;allowHandle</span></code> in the class doc comment.</p></li>
+<li><p>MUST be public</p></li>
+<li><p>MUST NOT be static</p></li>
+<li><p>MUST be declared by a class implementing <code class="docutils literal notranslate"><span class="pre">Listener</span></code> or extending a class which implements <code class="docutils literal notranslate"><span class="pre">Listener</span></code> (i.e. a method in a non-<code class="docutils literal notranslate"><span class="pre">Listener</span></code>-implementing base class which meets the above criteria IS NOT be considered a handler)</p></li>
+<li><p>MUST NOT declare the <code class="docutils literal notranslate"><span class="pre">&#64;notHandler</span></code> PhpDoc annotation (will be ignored if it does)</p></li>
+</ul>
+<p>The following are not mandatory but recommended:</p>
+<ul class="simple">
+<li><p>SHOULD NOT return a value (recommended to have a <code class="docutils literal notranslate"><span class="pre">void</span></code> return type (this may become a requirement in future))</p></li>
+<li><p>SHOULD NOT handle an event marked as <code class="docutils literal notranslate"><span class="pre">&#64;deprecated</span></code></p></li>
+</ul>
+</section>
+<section id="annotations-controlling-a-handler-function-s-behaviour">
+<h2>Annotations controlling a handler function’s behaviour<a class="headerlink" href="#annotations-controlling-a-handler-function-s-behaviour" title="Link to this heading"></a></h2>
+<p>Event handlers within a <code class="docutils literal notranslate"><span class="pre">Listener</span></code> can have their behaviour altered using certain PhpDoc doc-comment tags (otherwise known as “annotations”).
+The following annotations are respected for candidate handlers:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&#64;notHandler</span></code>: Marks a function as explicitly NOT being an event handler, even if it meets all other criteria.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&#64;ignoreCancelled</span></code>: This handler WILL NOT receive events which are cancelled before reaching it.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&#64;priority</span></code>: Allows controlling when in the event calling sequence this handler will be executed. This allows competing handlers of the same event to cooperate to some extent. See the section below on event priority. Example: <code class="docutils literal notranslate"><span class="pre">&#64;priority</span> <span class="pre">NORMAL</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&#64;softDepend</span></code>: Skips registering the handler if the event class it wants to handle does not exist. This can be used to soft-depend on classes provided by other plugins. Example: <code class="docutils literal notranslate"><span class="pre">&#64;softDepend</span> <span class="pre">SimpleAuth</span></code></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2014-2024, XPocketMP Team.
+      <span class="lastupdated">Last updated on Aug 02, 2024.
+      </span></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Using the official installer (Linux/MacOS only) &mdash; XPocketMP Documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css?v=fb5205af" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=3304f9e4"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Using Docker (Linux only)" href="docker.html" />
+    <link rel="prev" title="Setup requirements" href="requirements.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            XPocketMP
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../installation.html">Installation &amp; Updating</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="requirements.html">Setup requirements</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Using the official installer (Linux/MacOS only)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#installing-updating-to-the-latest-version">Installing/updating to the latest version</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#installing-a-specific-version">Installing a specific version</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="docker.html">Using Docker (Linux only)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installing-manually.html">Installing/updating manually</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../basic-usage.html">Basic usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resourcepacks.html">Resource Packs &amp; Behaviour Packs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../permissions.html">Permissions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contact.html">Contact and Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../links.html">Useful Links</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Frequently Asked Questions &amp; Common Issues</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../faq/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/connecting.html">Connecting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/playing.html">Playing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/plugins.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/about.html">About XPocketMP</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Issues, Bugs and Crashes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../issues/crashes.html">Crashes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../issues/github-issues.html">Using the GitHub Issue Tracker</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developer Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../developer-resources.html">Developer Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer-resources.html#external-development-resources">External development resources</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">XPocketMP</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../installation.html">Installation &amp; Updating</a></li>
+      <li class="breadcrumb-item active">Using the official installer (Linux/MacOS only)</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/installation/get-dot-pmmp-dot-io.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="using-the-official-installer-linux-macos-only">
+<span id="get-pmmp-io"></span><h1>Using the official installer (Linux/MacOS only)<a class="headerlink" href="#using-the-official-installer-linux-macos-only" title="Link to this heading"></a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Only works on Linux or MacOS.</p>
+</div>
+<p>If you’re creating a new server, create a directory which you want to install XPocketMP into, and <code class="docutils literal notranslate"><span class="pre">cd</span></code> into it.</p>
+<p>Otherwise, just <code class="docutils literal notranslate"><span class="pre">cd</span></code> straight into your existing server folder.</p>
+<section id="installing-updating-to-the-latest-version">
+<h2>Installing/updating to the latest version<a class="headerlink" href="#installing-updating-to-the-latest-version" title="Link to this heading"></a></h2>
+<p>Then use <code class="docutils literal notranslate"><span class="pre">curl</span></code> to install/update XPocketMP using the following command:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-sL<span class="w"> </span>https://get.pmmp.io<span class="w"> </span><span class="p">|</span><span class="w"> </span>bash<span class="w"> </span>-s<span class="w"> </span>-
+</pre></div>
+</div>
+<p>or, if you don’t have <code class="docutils literal notranslate"><span class="pre">curl</span></code>, try <code class="docutils literal notranslate"><span class="pre">wget</span></code>:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>wget<span class="w"> </span>-q<span class="w"> </span>-O<span class="w"> </span>-<span class="w"> </span>https://get.pmmp.io<span class="w"> </span><span class="p">|</span><span class="w"> </span>bash<span class="w"> </span>-s<span class="w"> </span>-
+</pre></div>
+</div>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>*<span class="o">]</span><span class="w"> </span>Found<span class="w"> </span>XPocketMP<span class="w"> </span>Final_1.5dev<span class="w"> </span><span class="o">(</span>build<span class="w"> </span><span class="m">1254</span><span class="o">)</span><span class="w"> </span>using<span class="w"> </span>API<span class="w"> </span><span class="m">1</span>.12.0
+<span class="o">[</span>*<span class="o">]</span><span class="w"> </span>This<span class="w"> </span>development<span class="w"> </span>build<span class="w"> </span>was<span class="w"> </span>released<span class="w"> </span>on<span class="w"> </span>Sat<span class="w"> </span>Jun<span class="w"> </span><span class="m">20</span><span class="w"> </span><span class="m">09</span>:45:04<span class="w"> </span>CEST<span class="w"> </span><span class="m">2015</span>
+<span class="o">[</span>*<span class="o">]</span><span class="w"> </span>Installing/updating<span class="w"> </span>XPocketMP<span class="w"> </span>on<span class="w"> </span>directory<span class="w"> </span>./
+<span class="o">[</span><span class="m">1</span>/3<span class="o">]</span><span class="w"> </span>Cleaning...
+<span class="o">[</span><span class="m">2</span>/3<span class="o">]</span><span class="w"> </span>Downloading<span class="w"> </span>XPocketMP<span class="w"> </span>Final_1.5dev-1254<span class="w"> </span>phar...<span class="w"> </span><span class="k">done</span>!
+<span class="o">[</span><span class="m">3</span>/3<span class="o">]</span><span class="w"> </span>Obtaining<span class="w"> </span>PHP:<span class="w"> </span>detecting<span class="w"> </span><span class="k">if</span><span class="w"> </span>build<span class="w"> </span>is<span class="w"> </span>available...
+<span class="o">[</span><span class="m">3</span>/3<span class="o">]</span><span class="w"> </span>MacOS<span class="w"> </span><span class="m">64</span>-bit<span class="w"> </span>PHP<span class="w"> </span>build<span class="w"> </span>available,<span class="w"> </span>downloading<span class="w"> </span>PHP_5.6.10_x86-64_MacOS.tar.gz...<span class="w"> </span>checking...<span class="w"> </span>regenerating<span class="w"> </span>php.ini...<span class="w"> </span><span class="k">done</span>
+<span class="o">[</span>*<span class="o">]</span><span class="w"> </span>Everything<span class="w"> </span><span class="k">done</span>!<span class="w"> </span>Run<span class="w"> </span>./start.sh<span class="w"> </span>to<span class="w"> </span>start<span class="w"> </span>XPocketMP
+</pre></div>
+</div>
+<div class="admonition error">
+<p class="admonition-title">Error</p>
+<p>It is recommended to run it as a <strong>normal user</strong> as it doesn’t need further permissions.</p>
+<p><strong>Do not run the installer as root, this is discouraged</strong>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the installer doesn’t work for you, try <a class="reference internal" href="installing-manually.html#installing-manually"><span class="std std-ref">installing manually</span></a>.</p>
+</div>
+</section>
+<section id="installing-a-specific-version">
+<h2>Installing a specific version<a class="headerlink" href="#installing-a-specific-version" title="Link to this heading"></a></h2>
+<p>If you don’t want to run the latest version, you may be able to run an older version by giving the <code class="docutils literal notranslate"><span class="pre">-v</span></code> option to the installer.</p>
+<p>Examples:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Version</p></th>
+<th class="head"><p>Command</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Latest 4.x stable</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">curl</span> <span class="pre">-sL</span> <span class="pre">https://get.pmmp.io</span> <span class="pre">|</span> <span class="pre">bash</span> <span class="pre">-s</span> <span class="pre">-</span> <span class="pre">-v</span> <span class="pre">4</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Latest 5.x beta</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">curl</span> <span class="pre">-sL</span> <span class="pre">https://get.pmmp.io</span> <span class="pre">|</span> <span class="pre">bash</span> <span class="pre">-s</span> <span class="pre">-</span> <span class="pre">-v</span> <span class="pre">5-beta</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Latest 5.1 stable</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">curl</span> <span class="pre">-sL</span> <span class="pre">https://get.pmmp.io</span> <span class="pre">|</span> <span class="pre">bash</span> <span class="pre">-s</span> <span class="pre">-</span> <span class="pre">-v</span> <span class="pre">5.1</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p>You can see a list of available options for <code class="docutils literal notranslate"><span class="pre">-v</span></code> by clicking <a class="reference external" href="https://github.com/pmmp/update.pmmp.io/tree/master/channels">here</a>.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2014-2024, XPocketMP Team.
+      <span class="lastupdated">Last updated on Aug 02, 2024.
+      </span></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

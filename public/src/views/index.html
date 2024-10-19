@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Home - XPocketMP</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <header>
+    <a class="logo">XPocketMP</a>
+    <div class="hamburger" onclick="toggleMenu()">
+      <i class="fas fab fa-bars"></i>
+    </div>
+    <nav>
+      <a href="/" class="active">Home</a>
+      <a href="#">About</a>
+      <a href="features">Features</a>
+      <a href="building">Building</a>
+      <a href="contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Welcome to <span>XPocketMP</span> Official Website!</h1>
+    <h3>Created by XPocketMC Team</h3>
+    <p>KnosTx, dktapps, NurAzli and others</p>
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-youtube"></i></a>
+      <a href="#"><i class="fab fa-github"></i></a>
+    </div>
+  </section>
+
+  <section class="features">
+    <h2>Features</h2>
+    <div class="feature-box">
+      <i class="fas fa-cube"></i>
+      <h3>Blocks</h3>
+      <p>Comprehensive block support.</p>
+    </div>
+    <div class="feature-box">
+      <i class="fas fa-tools"></i>
+      <h3>Tools</h3>
+      <p>Enhanced tool capabilities.</p>
+    </div>
+    <div class="feature-box">
+      <i class="fas fa-shield-alt"></i>
+      <h3>Weapons</h3>
+      <p>Full weapon support for combat.</p>
+    </div>
+    <div class="feature-box">
+      <i class="fas fa-cloud"></i>
+      <h3>Storage</h3>
+      <p>Lightweight and does not take up storage space</p>
+    </div>
+    <div class="feature-box">
+      <i class="fas fa-help"
+    </div>
+  </section>
+
+  <section class="team">
+    <h2>Meet the Team</h2>
+    <div class="team-member">
+      <img src="https://avatars.githubusercontent.com/u/135945845?v=4" alt="KnosTx">
+      <h3>KnosTx<a href="https://github.com/knostx"><i class="fab fa-github"></i></a></h3>
+      <p>Developer 1</p>
+    </div>
+    <div class="team-member">
+      <img src="https://avatars.githubusercontent.com/u/14214667?v=4" alt="dktapps">
+      <h3>dktapps<a href="https://github.com/dktapps"><i class="fab fa-github"></i></a></h3>
+      <p>Developer 2</p>
+    </div>
+    <div class="team-member">
+      <img src="https://avatars.githubusercontent.com/u/144025939?v=4" alt="NurAzli">
+      <h3>NurAzli<a href="https://github.com/NurAzli"><i class="fab fa-github"></i></a></h3>
+      <p>Contributor</p>
+    </div>
+    <div class="team-list">
+    <div class="team-member more">
+      <img src="https://avatars.githubusercontent.com/u/57236932" alt="IvanCraft623">
+      <h3>IvanCraft623<a href="https://github.com/IvanCraft623"><i class="fab fa-github"></i></a></h3>
+      <p>Contributor</p>
+    </div>
+    <div class="team-member more">
+      <img src="https://avatars.githubusercontent.com/u/15074389?s=60&v=4" alt="Muqsit">
+      <h3>Muqsit<a href="https://github.com/Muqsit"><i class="fab fa-github"></i></a></h3>
+    </div>
+    
+    <button id="toggleButton" onclick="toggleList()">Learn More</button>
+    </div>
+  </section>
+
+  <section class="contact">
+    <h2>Contact Us</h2>
+    <form action="#">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea placeholder="Your Message" rows="5" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2024 XPocketMP. All rights reserved. <a href="#">Privacy Policy</a></p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const nav = document.querySelector('nav');
+      nav.classList.toggle('active');
+    }
+    
+    function toggleList() {
+    const moreItems = document.querySelectorAll('.more');
+    const button = document.getElementById('toggleButton');
+    
+    moreItems.forEach(item => {
+        if (item.style.display === "none" || item.style.display === "") {
+            item.style.display = "list-item";
+            button.textContent = "See Less";
+        } else {
+            item.style.display = "none";
+            button.textContent = "See More";
+        }
+    });
+}
+
+  </script>
+</body>
+</html>

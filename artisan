@@ -1,0 +1,20 @@
+#!/usr/bin/env php
+<?php
+
+require __DIR__ . '/vendor/autoload.php';
+
+use Symfony\Component\Console\Application;
+use App\Commands\GenerateCommand;
+use App\Commands\KeyGenerateCommand;
+use App\Commands\DownCommand;
+use App\Commands\UpCommand;
+
+$application = new Application();
+
+// Tambahkan perintah di sini
+$application->add(new GenerateCommand());
+$application->add(new KeyGenerateCommand());
+$application->add(new DownCommand());
+$application->add(new UpCommand());
+
+$application->run();

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>API versioning &mdash; XPocketMP Documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css?v=fb5205af" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=3304f9e4"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Events" href="events.html" />
+    <link rel="prev" title="Developer Reference" href="../developer-resources.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            XPocketMP
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation &amp; Updating</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic-usage.html">Basic usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resourcepacks.html">Resource Packs &amp; Behaviour Packs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../permissions.html">Permissions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contact.html">Contact and Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../links.html">Useful Links</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Frequently Asked Questions &amp; Common Issues</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../faq/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/connecting.html">Connecting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/playing.html">Playing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/plugins.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/about.html">About XPocketMP</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Issues, Bugs and Crashes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../issues/crashes.html">Crashes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../issues/github-issues.html">Using the GitHub Issue Tracker</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developer Resources</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../developer-resources.html">Developer Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">API versioning</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#definitions">Definitions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#examples">Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-to-choose-your-supported-api-version">How to choose your supported API version</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#common-pitfalls-and-misconceptions">Common pitfalls and misconceptions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="events.html">Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inventory-transactions.html">Inventory Transactions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin-formats.html">Plugin formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin-manifest.html"><code class="docutils literal notranslate"><span class="pre">plugin.yml</span></code> fields</a></li>
+<li class="toctree-l2"><a class="reference internal" href="threading-in-php-wtf.html">Threading in PHP - WTF?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="updating-minecraft-protocol.html">Implementing new Minecraft version support in XPocketMP</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../developer-resources.html#external-development-resources">External development resources</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">XPocketMP</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../developer-resources.html">Developer Reference</a></li>
+      <li class="breadcrumb-item active">API versioning</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/developer-reference/api-version-spec.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="api-versioning">
+<span id="api-version-spec"></span><h1>API versioning<a class="headerlink" href="#api-versioning" title="Link to this heading"></a></h1>
+<p>XPocketMP plugins are required to declare which API versions they are compatible. This is used to decide whether or not to load a plugin, and to gracefully degrade when the plugin is not compatible with the given server version.</p>
+<p>As of XPocketMP 3.0.0, the API version is the same as the server version. This version is a semantic <code class="docutils literal notranslate"><span class="pre">major.minor.patch</span></code> version number. Read more about <a class="reference external" href="https://semver.org/">semantic versioning</a>.</p>
+<section id="definitions">
+<h2>Definitions<a class="headerlink" href="#definitions" title="Link to this heading"></a></h2>
+<p>Semver is roughly defined as the following:</p>
+<ul class="simple">
+<li><p>Major version bump: Breaking changes - the public API has changed in such a way that it breaks thing depending on it.</p></li>
+<li><p>Minor version bump: Feature additions or big changes which do not break API. This can include API methods becoming deprecated, new API features being added, but should not break plugins designed for previous minor versions.</p></li>
+<li><p>Patch version bump: Usually bug fixes. These shouldn’t break the API nor cause any significant alteration to the description of a version.</p></li>
+</ul>
+<p>XPocketMP uses a condition of <code class="docutils literal notranslate"><span class="pre">==.&gt;=.&gt;=</span></code> (or <code class="docutils literal notranslate"><span class="pre">eq.ge.ge</span></code> if you prefer <code class="docutils literal notranslate"><span class="pre">bash</span></code> notation) for comparing API versions. This means that:</p>
+<ul class="simple">
+<li><p>The major version <strong>MUST be the same</strong> to be compatible</p></li>
+<li><p>The server’s minor version <strong>MUST be AT LEAST the same</strong> as the plugin’s, although it can be greater.</p></li>
+<li><p>The server’s patch version <strong>MUST be AT LEAST the same</strong> as the plugin’s, but can also be greater.</p></li>
+</ul>
+<p>The XPocketMP developers strive to ensure that any non-major version does not break API compatibility with plugins. This means that a plugin written to target <code class="docutils literal notranslate"><span class="pre">3.1.1</span></code> should also work on any future <code class="docutils literal notranslate"><span class="pre">3.x.y</span></code> version, but <strong>not</strong> <code class="docutils literal notranslate"><span class="pre">4.0.0</span></code> or any future major versions.</p>
+</section>
+<section id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Server version</p></th>
+<th class="head"><p>Plugin version</p></th>
+<th class="head"><p>Compatible</p></th>
+<th class="head"><p>Reason</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>4.0.0</p></td>
+<td><p>3.0.0</p></td>
+<td><p>NO</p></td>
+<td><p>Major versions are different.</p></td>
+</tr>
+<tr class="row-odd"><td><p>3.1.0</p></td>
+<td><p>3.0.0</p></td>
+<td><p>YES</p></td>
+<td><p>Server has a greater minor version than the plugin, guaranteeing compatibility.</p></td>
+</tr>
+<tr class="row-even"><td><p>3.0.0</p></td>
+<td><p>3.1.0</p></td>
+<td><p>NO</p></td>
+<td><p>Plugin requires new features not found in the given server version</p></td>
+</tr>
+<tr class="row-odd"><td><p>3.0.1</p></td>
+<td><p>3.0.0</p></td>
+<td><p>YES</p></td>
+<td><p>Server has a greater patch version than the plugin, guaranteeing compatibility.</p></td>
+</tr>
+<tr class="row-even"><td><p>3.0.0</p></td>
+<td><p>3.0.1</p></td>
+<td><p>NO</p></td>
+<td><p>Plugin requires newer bug fixes not found in the given server version</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="how-to-choose-your-supported-api-version">
+<h2>How to choose your supported API version<a class="headerlink" href="#how-to-choose-your-supported-api-version" title="Link to this heading"></a></h2>
+<p>You should choose the <strong>minimum version that supports the things that you need</strong>.</p>
+<p>For example, if the feature you want was first added in <code class="docutils literal notranslate"><span class="pre">3.1.0</span></code>, you can require <code class="docutils literal notranslate"><span class="pre">3.1.0</span></code> as a minimum even if the currently supported version is <code class="docutils literal notranslate"><span class="pre">3.2.0</span></code>. This is to ensure that users get a smoother experience no matter what version of XPocketMP they are using.</p>
+<p>Of course, you should test your plugin on your minimum version to make sure that everything works correctly. However, it may of course not make sense to require a lower version if the earlier versions are end-of-life.</p>
+</section>
+<section id="common-pitfalls-and-misconceptions">
+<h2>Common pitfalls and misconceptions<a class="headerlink" href="#common-pitfalls-and-misconceptions" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>The API version <strong>is not a magic number</strong>. Changing it blindly <strong>will not make a plugin magically work</strong> on a version it wasn’t designed for.</p></li>
+<li><p>It is <strong>not required to write out every single compatible version</strong> in your plugin’s manifest. Only the <strong>minimum required version of each major version</strong> is required.</p>
+<ul>
+<li><p>Good: <code class="docutils literal notranslate"><span class="pre">[3.1.0]</span></code> (single minimum version), <code class="docutils literal notranslate"><span class="pre">[3.2.0,</span> <span class="pre">4.0.0]</span></code> (minimum version from two different major branches)</p></li>
+<li><p>Bad: <code class="docutils literal notranslate"><span class="pre">[3.1.0,</span> <span class="pre">3.1.1,</span> <span class="pre">3.1.2]</span></code> - this is <strong>not</strong> desired and the superfluous versions will be ignored.</p></li>
+</ul>
+</li>
+<li><p>Ensure that your plugin <strong>actually runs on the versions you specified</strong>. Versions which it a) crashes on, or b) doesn’t work as expected, should be removed from your versions list.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2014-2024, XPocketMP Team.
+      <span class="lastupdated">Last updated on Aug 02, 2024.
+      </span></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

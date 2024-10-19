@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Implementing new Minecraft version support in XPocketMP &mdash; XPocketMP Documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css?v=fb5205af" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=3304f9e4"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Threading in PHP - WTF?" href="threading-in-php-wtf.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            XPocketMP
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation &amp; Updating</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic-usage.html">Basic usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resourcepacks.html">Resource Packs &amp; Behaviour Packs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../permissions.html">Permissions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contact.html">Contact and Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../links.html">Useful Links</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Frequently Asked Questions &amp; Common Issues</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../faq/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/connecting.html">Connecting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/playing.html">Playing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/plugins.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/about.html">About XPocketMP</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Issues, Bugs and Crashes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../issues/crashes.html">Crashes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../issues/github-issues.html">Using the GitHub Issue Tracker</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developer Resources</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../developer-resources.html">Developer Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="api-version-spec.html">API versioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events.html">Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inventory-transactions.html">Inventory Transactions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin-formats.html">Plugin formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin-manifest.html"><code class="docutils literal notranslate"><span class="pre">plugin.yml</span></code> fields</a></li>
+<li class="toctree-l2"><a class="reference internal" href="threading-in-php-wtf.html">Threading in PHP - WTF?</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Implementing new Minecraft version support in XPocketMP</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pre-requisites">Pre-requisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#basic-changes-to-bedrockprotocol-and-XPocketMP">Basic changes to BedrockProtocol and XPocketMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#generating-supporting-data">Generating supporting data</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#getting-data-from-bds-via-mods">Getting data from BDS via mods</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#getting-data-from-vanilla-vanilla-packet-traces">Getting data from vanilla &lt;-&gt; vanilla packet traces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#generating-a-blockstate-upgrade-schema">Generating a blockstate upgrade schema</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#generating-an-item-upgrade-schema">Generating an item upgrade schema</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#completing-changes-in-XPocketMP-using-the-new-data">Completing changes in XPocketMP using the new data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#playtesting-XPocketMP">Playtesting XPocketMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#committing-the-results">Committing the results</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../developer-resources.html#external-development-resources">External development resources</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">XPocketMP</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../developer-resources.html">Developer Reference</a></li>
+      <li class="breadcrumb-item active">Implementing new Minecraft version support in XPocketMP</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/developer-reference/updating-minecraft-protocol.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="implementing-new-minecraft-version-support-in-XPocketMP">
+<span id="updating-XPocketMP-minecraft"></span><h1>Implementing new Minecraft version support in XPocketMP<a class="headerlink" href="#implementing-new-minecraft-version-support-in-XPocketMP" title="Link to this heading"></a></h1>
+<p>Minecraft often makes changes to its network protocol, including adding new packets, removing old ones, or changing the structure of existing packets.
+Because of this, XPocketMP often needs to be updated to support the latest version of Minecraft.</p>
+<p>This page will cover the basic process of analyzing and implementing protocol updates.</p>
+<section id="pre-requisites">
+<h2>Pre-requisites<a class="headerlink" href="#pre-requisites" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Linux (WSL2 will work)</p></li>
+<li><p>Linux version of <a class="reference external" href="https://www.minecraft.net/en-us/download/server/bedrock">Bedrock Dedicated Server</a> compatible with your target version of Minecraft</p></li>
+<li><p>Minecraft world with the desired features to test (optionally with experiments enabled, e.g. 1.21 Update)</p></li>
+<li><p>Git clones of <a class="reference external" href="https://github.com/pmmp/XPocketMP">XPocketMP</a>, <a class="reference external" href="https://github.com/pmmp/BedrockProtocol">BedrockProtocol</a>, <a class="reference external" href="https://github.com/pmmp/BedrockData">BedrockData</a>, <a class="reference external" href="https://github.com/pmmp/BedrockBlockUpgradeSchema">BedrockBlockUpgradeSchema</a>, and <a class="reference external" href="https://github.com/pmmp/BedrockItemUpgradeSchema">BedrockItemUpgradeSchema</a></p></li>
+<li><p>A local copy of <a class="reference external" href="https://github.com/pmmp/BedrockProtocolDumper">BedrockProtocolDumper</a></p></li>
+</ul>
+</section>
+<section id="basic-changes-to-bedrockprotocol-and-XPocketMP">
+<h2>Basic changes to BedrockProtocol and XPocketMP<a class="headerlink" href="#basic-changes-to-bedrockprotocol-and-XPocketMP" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">BedrockProtocol</span></code> is where most of the manual work needs to be done.</p>
+<ol class="arabic simple">
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">protocol_info_generator_objdump.py</span></code> in <code class="docutils literal notranslate"><span class="pre">BedrockProtocolDumper</span></code> to generate packet ID lists and version information. This script requires Python 2, and takes a path to a <code class="docutils literal notranslate"><span class="pre">bedrock_server_symbols.debug</span></code> file and a path to your <code class="docutils literal notranslate"><span class="pre">BedrockProtocol</span></code> local copy. The following things will be updated:</p></li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">src/PacketPool.php</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">src/ProtocolInfo.php</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">src/PacketHandler.php</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">src/PacketHandlerInterface.php</span></code></p></li>
+<li><p>New files may be added if there are new packets in the version you are updating to. However, files will <strong>not</strong> be removed for deleted packets - that’s up to you to do manually.</p></li>
+</ul>
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li><p>Analyze what changes need to be made to packet structures. This typically involves one or more of the following methods:</p></li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li><p>Reading the official <a class="reference external" href="https://github.com/Mojang/bedrock-protocol-docs">Minecraft Bedrock protocol documentation</a> - these are the easiest to use, but sometimes miss changes or are incorrect</p></li>
+<li><p>Using tools like <a class="reference external" href="https://hex-rays.com/">IDA</a> to decompile <code class="docutils literal notranslate"><span class="pre">bedrock_server_symbols.debug</span></code> and analyze packet source code (you need the x86_64 decompiler to work on BDS)</p></li>
+</ul>
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li><p>Update packet structures and information in <code class="docutils literal notranslate"><span class="pre">BedrockProtocol</span></code>. This includes:</p></li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li><p>Writing code to encode and decode new packets</p></li>
+<li><p>Adjusting structures of existing packets and their subtypes if necessary</p></li>
+<li><p>Updating constants and/or enums to match the new version</p></li>
+<li><p>Whether new packet(s) should be clientbound, serverbound, or both</p></li>
+</ul>
+</div></blockquote>
+<ol class="arabic simple" start="4">
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">tools/generate-create-static-methods.php</span></code> in <code class="docutils literal notranslate"><span class="pre">BedrockProtocol</span></code>. This will update the <code class="docutils literal notranslate"><span class="pre">::create()</span></code> methods for all packets to match the new packet structures. (Make sure to run <code class="docutils literal notranslate"><span class="pre">php-cs-fixer</span></code> afterwards. It won’t break anything if you don’t, but the script will mess up the formatting.)</p></li>
+<li><p>Do any necessary changes to XPocketMP to make it compatible with the updated <code class="docutils literal notranslate"><span class="pre">BedrockProtocol</span></code>. You can run PHPStan to find out where changes need to be made.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can link locally-modified versions of <code class="docutils literal notranslate"><span class="pre">BedrockProtocol</span></code> and related repositories to XPocketMP. This makes it easier to do integration testing without having to commit anything.</p>
+<p>Use the provided <a class="reference external" href="https://github.com/pmmp/XPocketMP/blob/stable/install-local-protocol.sh">script</a> to link your local copies of <code class="docutils literal notranslate"><span class="pre">BedrockProtocol</span></code>, <code class="docutils literal notranslate"><span class="pre">BedrockBlockUpgradeSchema</span></code>, <code class="docutils literal notranslate"><span class="pre">BedrockItemUpgradeSchema</span></code>, and <code class="docutils literal notranslate"><span class="pre">BedrockData</span></code> to <code class="docutils literal notranslate"><span class="pre">XPocketMP</span></code>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you suspect that the official protocol documentation is incorrect, you can use tools like <a class="reference external" href="https://hex-rays.com/">IDA</a> to decompile the BDS binary and analyze the packet code directly.
+However, this can be a very frustrating and time-consuming process, as <a class="reference external" href="https://hex-rays.com/">IDA</a> is very slow and laggy when working with large binaries like BDS.</p>
+<p>You can also use <code class="docutils literal notranslate"><span class="pre">gdb</span></code> to look at BDS’s compiled assembly code, which can be much faster, but is also much more difficult to understand.</p>
+</div>
+</section>
+<section id="generating-supporting-data">
+<h2>Generating supporting data<a class="headerlink" href="#generating-supporting-data" title="Link to this heading"></a></h2>
+<p>XPocketMP requires additional data from the new version of Minecraft to function correctly. This includes:</p>
+<p>These data originate from two sources:</p>
+<ol class="arabic simple">
+<li><p>Mods of the Bedrock Dedicated Server that dump the needed data. This method is a pain, but it’s the only way to get some data. This could become a problem in the future if Mojang proceed with their plans to remove debugging symbols from the BDS.</p></li>
+<li><p>Packet traces of the Bedrock Dedicated Server communicating with a vanilla Minecraft client. These can be obtained in several different ways, but not all required data can be obtained this way.</p></li>
+</ol>
+<section id="getting-data-from-bds-via-mods">
+<h3>Getting data from BDS via mods<a class="headerlink" href="#getting-data-from-bds-via-mods" title="Link to this heading"></a></h3>
+<p>PMMP provides a <a class="reference external" href="https://github.com/pmmp/bds-modding-devkit">modding toolkit</a> that makes it easy to run the needed mods on the BDS.
+Follow the instructions in the repository README to set up the modding environment and run the mods.</p>
+<p>The mod code of interest can be found in the <a class="reference external" href="https://github.com/pmmp/bds-mod-mapping">data extraction mod</a> main repository.
+This mod is preinstalled by the modding toolkit when you clone following the instructions in the README.</p>
+<p>Once you’ve generated the data, copy all the files (not the folders) in <code class="docutils literal notranslate"><span class="pre">input_files/</span></code> to <code class="docutils literal notranslate"><span class="pre">BedrockData</span></code>.
+There may be additional files that are not needed by <code class="docutils literal notranslate"><span class="pre">BedrockData</span></code>. You can ignore these.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The code often needs to be updated to work with the latest version of the BDS.
+This guide won’t cover how to make the mods run on newest BDS, as the changes needed are usually different from version to version, and this guide would end up very long.
+You really should have general experience modding BDS before trying to get into this.
+If you need help, ask in the PMMP Discord server.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Make sure the <code class="docutils literal notranslate"><span class="pre">input_files/old_block_palettes</span></code> submodule is up to date, and that it contains a block palette for the previous version of Minecraft.
+You’ll need this later for generating blockstate upgrade schemas.</p>
+</div>
+</section>
+<section id="getting-data-from-vanilla-vanilla-packet-traces">
+<h3>Getting data from vanilla &lt;-&gt; vanilla packet traces<a class="headerlink" href="#getting-data-from-vanilla-vanilla-packet-traces" title="Link to this heading"></a></h3>
+<p>The <a class="reference external" href="https://github.com/pmmp/bds-modding-devkit">modding toolkit</a> also provides a <a class="reference external" href="https://github.com/pmmp/bds-modding-devkit/blob/master/tracer.py">tracer script</a> that can be used to hook into a running instance of BDS and capture packet traces between a vanilla client and server.
+This script uses the <a class="reference external" href="https://frida.re">Frida.re</a> Python API to hook into packet read and write functions in the BDS.
+The script has no impact on vanilla behaviour, guaranteeing the best quality data.</p>
+<p>These traces can be used to generate data, and also to verify that your changes to <a class="reference external" href="https://github.com/pmmp/BedrockProtocol">BedrockProtocol</a> are correct.</p>
+<p>Steps to capture packet traces:</p>
+<ol class="arabic simple">
+<li><p>Create a new world in Minecraft on the target version. Make sure to enable any experiments which add new blocks or items, as these need to be present for generating data upgrade schemas.</p></li>
+<li><p>Configure <code class="docutils literal notranslate"><span class="pre">server.properties</span></code> on your BDS to use the world you generated.</p></li>
+<li><p>Start <code class="docutils literal notranslate"><span class="pre">bedrock_server_symbols.debug</span></code> directly (do not use <code class="docutils literal notranslate"><span class="pre">start.sh</span></code>).</p></li>
+<li><p>In a separate terminal, run the following command: <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">python3</span> <span class="pre">tracer.py</span> <span class="pre">rw</span> <span class="pre">bedrock_server_symbols.debug</span></code>. This will hook into the running BDS instance and start capturing packet traces.</p></li>
+<li><p>Join the BDS server using Minecraft. Do whatever in-game tests you need to get the game to send packets you want to see.</p></li>
+<li><p>Stop the server. The script will print the filename of the trace file it generated. This usually looks something like <code class="docutils literal notranslate"><span class="pre">packets_123456789.txt</span></code>.</p></li>
+</ol>
+<p>Once you have a trace file, use XPocketMP’s <code class="docutils literal notranslate"><span class="pre">tools/generate-bedrock-data-from-packets.php</span></code> script, providing the path to the trace file as an argument and the path to your local copy of <code class="docutils literal notranslate"><span class="pre">BedrockData</span></code>. The script will update the appropriate files in <code class="docutils literal notranslate"><span class="pre">BedrockData</span></code>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Do not use <code class="docutils literal notranslate"><span class="pre">tracer.py</span></code> on a server with mods loaded. The BDS instance may crash or behave unexpectedly.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You may have difficulty joining a BDS server running inside WSL2 from a Windows Minecraft client. This is a long-standing issue between WSL2 and UWP apps and has no known fix.
+You can work around it by using a basic proxy script like <a class="reference external" href="https://github.com/pmmp/RakLib/blob/stable/tools/proxy.php">RakLib proxy.php</a> and joining via the proxy instead of trying to connect directly.
+Alternatively, just run the server on a proper Linux machine or VM.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you don’t want to use <code class="docutils literal notranslate"><span class="pre">tracer.py</span></code>, you can also create a packet trace using a proxy such as <a class="reference external" href="https://github.com/Sandertv/gophertunnel">gophertunnel</a>.
+The structure of the file is simple: each line is starts with <code class="docutils literal notranslate"><span class="pre">read:</span></code> or <code class="docutils literal notranslate"><span class="pre">write:</span></code> followed by the packet buffer encoded as base64.
+However, a proxy may change the structure, order and timings of packets, so it may not give the same quality of data as the tracer script.</p>
+</div>
+</section>
+<section id="generating-a-blockstate-upgrade-schema">
+<h3>Generating a blockstate upgrade schema<a class="headerlink" href="#generating-a-blockstate-upgrade-schema" title="Link to this heading"></a></h3>
+<p>XPocketMP uses JSON schemas to tell it how to upgrade blockstate NBT data in old world saves to the newest version.</p>
+<p>Steps to generate a blockstate upgrade schema:</p>
+<ol class="arabic simple">
+<li><p>Get the appropriate palette mapping file that the BDS mod generated. You can find it in <code class="docutils literal notranslate"><span class="pre">mapping_files/old_palette_mappings</span></code>, and the file name will be something like <code class="docutils literal notranslate"><span class="pre">1.20.80.24_beta_to_current_block_map.bin</span></code>.</p></li>
+<li><p>Use XPocketMP’s <code class="docutils literal notranslate"><span class="pre">tools/generate-blockstate-upgrade-schema.php</span></code> to generate a new schema for this version.</p></li>
+<li><p>Add the schema to the <code class="docutils literal notranslate"><span class="pre">nbt_upgrade_schema</span></code> folder of <code class="docutils literal notranslate"><span class="pre">BedrockBlockUpgradeSchema</span></code>. The name should be prefixed with a number to ensure the files are sorted correctly, like this: <code class="docutils literal notranslate"><span class="pre">0271_1.20.70.24_beta_to_1.20.80.24_beta.json</span></code>.</p></li>
+<li><p>Commit the new schema. <strong>Do not commit directly to the master branch until the version is released.</strong></p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you can’t get a palette mapping file, you can write an upgrade schema by hand.
+However, this may be time-consuming and error-prone, and is not recommended unless you have no other choice.</p>
+</div>
+</section>
+<section id="generating-an-item-upgrade-schema">
+<h3>Generating an item upgrade schema<a class="headerlink" href="#generating-an-item-upgrade-schema" title="Link to this heading"></a></h3>
+<p>XPocketMP uses JSON schemas to upgrade item data in old world saves to the newest version.</p>
+<p>Steps to generate an item upgrade schema:</p>
+<ol class="arabic simple">
+<li><p>Use XPocketMP’s <code class="docutils literal notranslate"><span class="pre">tools/generate-item-upgrade-schema.php</span></code>. Give it the path to <code class="docutils literal notranslate"><span class="pre">r16_to_current_item_map.json</span></code> in <code class="docutils literal notranslate"><span class="pre">BedrockData</span></code>, and the path to the already-existing schemas in <code class="docutils literal notranslate"><span class="pre">BedrockItemUpgradeSchema</span></code>.</p></li>
+<li><p>Add the schema to the <code class="docutils literal notranslate"><span class="pre">id_meta_upgrade_schema</span></code> folder of <code class="docutils literal notranslate"><span class="pre">BedrockItemUpgradeSchema</span></code>. The name should be prefixed with a number to ensure the files are sorted correctly, like this: <code class="docutils literal notranslate"><span class="pre">0181_1.20.70.24_beta_to_1.20.80.24_beta.json</span></code>.</p></li>
+<li><p>Commit the new schema. <strong>Do not commit directly to the master branch until the version is released.</strong></p></li>
+</ol>
+</section>
+</section>
+<section id="completing-changes-in-XPocketMP-using-the-new-data">
+<h2>Completing changes in XPocketMP using the new data<a class="headerlink" href="#completing-changes-in-XPocketMP-using-the-new-data" title="Link to this heading"></a></h2>
+<p>Once you have generated supporting data, you may need to do a few more changes to XPocketMP.</p>
+<p>This mostly involves updating the code in <code class="docutils literal notranslate"><span class="pre">src/data/bedrock/block</span></code> and <code class="docutils literal notranslate"><span class="pre">src/data/bedrock/item</span></code> to decode and encode data in the expected format for the newest version.</p>
+<p>If you’re lucky, the version you’re updating to might not have changed anything at all. In this case, you won’t need to do anything.</p>
+<p>Steps to do the changes:</p>
+<ol class="arabic">
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">composer</span> <span class="pre">update-codegen</span></code>.</p></li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">vendor/bin/phpstan</span></code>. This will tell you where you need to make changes.</p></li>
+<li><p>Fix all the problems reported by PHPStan.</p></li>
+<li><p>Make sure the following constants are updated correctly:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">BlockStateData::CURRENT_VERSION</span></code> (often changes)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BedrockWorldData::CURRENT_STORAGE_VERSION</span></code> (rarely changes)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BedrockWorldData::CURRENT_STORAGE_NETWORK_VERSION</span></code> (always changes)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BedrockWorldData::CURRENT_CLIENT_VERSION_TARGET</span></code> (always changes)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">LevelDB::CURRENT_LEVEL_CHUNK_VERSION</span></code> (rarely changes)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">LevelDB::CURRENT_LEVEL_SUBCHUNK_VERSION</span></code> (rarely changes)</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">vendor/bin/phpunit</span> <span class="pre">tests/phpunit</span></code>. Make sure all the tests pass. If you’ve made a mistake somewhere, the tests should fail.</p></li>
+</ol>
+</section>
+<section id="playtesting-XPocketMP">
+<h2>Playtesting XPocketMP<a class="headerlink" href="#playtesting-XPocketMP" title="Link to this heading"></a></h2>
+<p>Once you’ve made all the changes, you should playtest XPocketMP to make sure everything works as expected.</p>
+<ol class="arabic simple">
+<li><p>Create a new world with Minecraft on the target version.</p></li>
+<li><p>Load the world into XPocketMP and start the server.</p></li>
+<li><p>Do whatever playtests you need to make sure your changes work as expected.</p></li>
+</ol>
+</section>
+<section id="committing-the-results">
+<h2>Committing the results<a class="headerlink" href="#committing-the-results" title="Link to this heading"></a></h2>
+<p>Once you’re happy with your changes, commit the changes on all repositories.
+By convention, we recommend you name your branch like this: <code class="docutils literal notranslate"><span class="pre">bedrock-1.21.0</span></code>.</p>
+<p>When the new version’s final release is out, merge the changes into the main branches and tag releases where appropriate.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Bedrock*</span></code> repositories use tag metadata (suffixed using a <code class="docutils literal notranslate"><span class="pre">+</span></code> sign) to show which version of Minecraft they support.
+An example tag looks something like this: <code class="docutils literal notranslate"><span class="pre">1.9.0+bedrock-1.20.80</span></code>.</p>
+<p>The metadata doesn’t affect dependency version resolution, but it can be useful for telling at a glance which version the repository supports.</p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2014-2024, XPocketMP Team.
+      <span class="lastupdated">Last updated on Aug 02, 2024.
+      </span></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

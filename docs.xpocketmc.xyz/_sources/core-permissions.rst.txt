@@ -1,0 +1,380 @@
+.. _corepermissions:
+
+List of XPocketMP core permissions
+======================================
+
+Generated from XPocketMP 5.15.1+dev
+
+.. list-table::
+   :header-rows: 1
+
+   * - Name
+     - Description
+     - Implied permissions
+
+   * - ``XPocketMP.broadcast.admin``
+     - Allows the user to receive administrative broadcasts
+     - N/A
+   * - ``XPocketMP.broadcast.user``
+     - Allows the user to receive user broadcasts
+     - N/A
+   * - ``XPocketMP.command.ban.ip``
+     - Allows the user to ban IP addresses
+     - N/A
+   * - ``XPocketMP.command.ban.list``
+     - Allows the user to list banned players
+     - N/A
+   * - ``XPocketMP.command.ban.player``
+     - Allows the user to ban players
+     - N/A
+   * - ``XPocketMP.command.clear.other``
+     - Allows the user to clear inventory of other players
+     - N/A
+   * - ``XPocketMP.command.clear.self``
+     - Allows the user to clear their own inventory
+     - N/A
+   * - ``XPocketMP.command.defaultgamemode``
+     - Allows the user to change the default game mode
+     - N/A
+   * - ``XPocketMP.command.difficulty``
+     - Allows the user to change the game difficulty
+     - N/A
+   * - ``XPocketMP.command.dumpmemory``
+     - Allows the user to dump memory contents
+     - N/A
+   * - ``XPocketMP.command.effect.other``
+     - Allows the user to modify effects of other players
+     - N/A
+   * - ``XPocketMP.command.effect.self``
+     - Allows the user to modify their own effects
+     - N/A
+   * - ``XPocketMP.command.enchant.other``
+     - Allows the user to enchant the held items of other players
+     - N/A
+   * - ``XPocketMP.command.enchant.self``
+     - Allows the user to enchant their own held item
+     - N/A
+   * - ``XPocketMP.command.gamemode.other``
+     - Allows the user to change the game mode of other players
+     - N/A
+   * - ``XPocketMP.command.gamemode.self``
+     - Allows the user to change their own game mode
+     - N/A
+   * - ``XPocketMP.command.gc``
+     - Allows the user to fire garbage collection tasks
+     - N/A
+   * - ``XPocketMP.command.give.other``
+     - Allows the user to give items to other players
+     - N/A
+   * - ``XPocketMP.command.give.self``
+     - Allows the user to give items to themselves
+     - N/A
+   * - ``XPocketMP.command.help``
+     - Allows the user to view the help menu
+     - N/A
+   * - ``XPocketMP.command.kick``
+     - Allows the user to kick players
+     - N/A
+   * - ``XPocketMP.command.kill.other``
+     - Allows the user to kill other players
+     - N/A
+   * - ``XPocketMP.command.kill.self``
+     - Allows the user to commit suicide
+     - N/A
+   * - ``XPocketMP.command.list``
+     - Allows the user to list all online players
+     - N/A
+   * - ``XPocketMP.command.me``
+     - Allows the user to perform a chat action
+     - N/A
+   * - ``XPocketMP.command.op.give``
+     - Allows the user to give a player operator status
+     - N/A
+   * - ``XPocketMP.command.op.take``
+     - Allows the user to take a player's operator status
+     - N/A
+   * - ``XPocketMP.command.particle``
+     - Allows the user to create particle effects
+     - N/A
+   * - ``XPocketMP.command.plugins``
+     - Allows the user to view the list of plugins
+     - N/A
+   * - ``XPocketMP.command.save.disable``
+     - Allows the user to disable automatic saving
+     - N/A
+   * - ``XPocketMP.command.save.enable``
+     - Allows the user to enable automatic saving
+     - N/A
+   * - ``XPocketMP.command.save.perform``
+     - Allows the user to enable automatic saving
+     - N/A
+   * - ``XPocketMP.command.say``
+     - Allows the user to broadcast announcements to the server
+     - N/A
+   * - ``XPocketMP.command.seed``
+     - Allows the user to view the seed of the world
+     - N/A
+   * - ``XPocketMP.command.setworldspawn``
+     - Allows the user to change the world spawn
+     - N/A
+   * - ``XPocketMP.command.spawnpoint.other``
+     - Allows the user to change the respawn point of other players
+     - N/A
+   * - ``XPocketMP.command.spawnpoint.self``
+     - Allows the user to change their own respawn point
+     - N/A
+   * - ``XPocketMP.command.status``
+     - Allows the user to view the server performance
+     - N/A
+   * - ``XPocketMP.command.stop``
+     - Allows the user to stop the server
+     - N/A
+   * - ``XPocketMP.command.teleport.other``
+     - Allows the user to teleport other players
+     - N/A
+   * - ``XPocketMP.command.teleport.self``
+     - Allows the user to teleport themselves
+     - N/A
+   * - ``XPocketMP.command.tell``
+     - Allows the user to privately message another player
+     - N/A
+   * - ``XPocketMP.command.time.add``
+     - Allows the user to fast-forward time
+     - N/A
+   * - ``XPocketMP.command.time.query``
+     - Allows the user to check the time
+     - N/A
+   * - ``XPocketMP.command.time.set``
+     - Allows the user to change the time
+     - N/A
+   * - ``XPocketMP.command.time.start``
+     - Allows the user to restart the time
+     - N/A
+   * - ``XPocketMP.command.time.stop``
+     - Allows the user to stop the time
+     - N/A
+   * - ``XPocketMP.command.timings``
+     - Allows the user to record timings to analyse server performance
+     - N/A
+   * - ``XPocketMP.command.title.other``
+     - Allows the user to send a title to the specified player
+     - N/A
+   * - ``XPocketMP.command.title.self``
+     - Allows the user to send a title to themselves
+     - N/A
+   * - ``XPocketMP.command.transferserver``
+     - Allows the user to transfer self to another server
+     - N/A
+   * - ``XPocketMP.command.unban.ip``
+     - Allows the user to unban IP addresses
+     - N/A
+   * - ``XPocketMP.command.unban.player``
+     - Allows the user to unban players
+     - N/A
+   * - ``XPocketMP.command.version``
+     - Allows the user to view the version of the server
+     - N/A
+   * - ``XPocketMP.command.whitelist.add``
+     - Allows the user to add a player to the server whitelist
+     - N/A
+   * - ``XPocketMP.command.whitelist.disable``
+     - Allows the user to disable the server whitelist
+     - N/A
+   * - ``XPocketMP.command.whitelist.enable``
+     - Allows the user to enable the server whitelist
+     - N/A
+   * - ``XPocketMP.command.whitelist.list``
+     - Allows the user to list all players on the server whitelist
+     - N/A
+   * - ``XPocketMP.command.whitelist.reload``
+     - Allows the user to reload the server whitelist
+     - N/A
+   * - ``XPocketMP.command.whitelist.remove``
+     - Allows the user to remove a player from the server whitelist
+     - N/A
+   * - ``XPocketMP.group.console``
+     - Grants all console permissions
+     - :ref:`Jump<permissions_implied_by_XPocketMP.group.console>`
+   * - ``XPocketMP.group.operator``
+     - Grants all operator permissions
+     - :ref:`Jump<permissions_implied_by_XPocketMP.group.operator>`
+   * - ``XPocketMP.group.user``
+     - Grants all non-sensitive permissions that everyone gets by default
+     - :ref:`Jump<permissions_implied_by_XPocketMP.group.user>`
+
+
+Implied permissions
+-------------------
+
+Some permissions automatically grant (or deny) other permissions by default when granted. These are referred to as **implied permissions**.
+
+Permissions may imply permissions which in turn imply other permissions (e.g. ``XPocketMP.group.operator`` implies ``XPocketMP.group.user``, which in turn implies ``XPocketMP.command.help``).
+
+Implied permissions can be overridden by explicit permissions from elsewhere.
+
+**Note:** When explicitly denied, implied permissions are inverted. This means that "granted" becomes "denied" and vice versa.
+
+
+
+.. _permissions_implied_by_XPocketMP.group.console:
+
+Permissions implied by ``XPocketMP.group.console``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Users granted this permission will also be granted/denied the following permissions implicitly:
+
+.. list-table::
+   :header-rows: 1
+
+   * - Name
+     - Type
+   * - ``XPocketMP.command.dumpmemory``
+     - Granted
+   * - ``XPocketMP.group.operator``
+     - Granted
+
+.. _permissions_implied_by_XPocketMP.group.operator:
+
+Permissions implied by ``XPocketMP.group.operator``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Users granted this permission will also be granted/denied the following permissions implicitly:
+
+.. list-table::
+   :header-rows: 1
+
+   * - Name
+     - Type
+   * - ``XPocketMP.broadcast.admin``
+     - Granted
+   * - ``XPocketMP.command.ban.ip``
+     - Granted
+   * - ``XPocketMP.command.ban.list``
+     - Granted
+   * - ``XPocketMP.command.ban.player``
+     - Granted
+   * - ``XPocketMP.command.clear.other``
+     - Granted
+   * - ``XPocketMP.command.defaultgamemode``
+     - Granted
+   * - ``XPocketMP.command.difficulty``
+     - Granted
+   * - ``XPocketMP.command.effect.other``
+     - Granted
+   * - ``XPocketMP.command.effect.self``
+     - Granted
+   * - ``XPocketMP.command.enchant.other``
+     - Granted
+   * - ``XPocketMP.command.enchant.self``
+     - Granted
+   * - ``XPocketMP.command.gamemode.other``
+     - Granted
+   * - ``XPocketMP.command.gamemode.self``
+     - Granted
+   * - ``XPocketMP.command.gc``
+     - Granted
+   * - ``XPocketMP.command.give.other``
+     - Granted
+   * - ``XPocketMP.command.give.self``
+     - Granted
+   * - ``XPocketMP.command.kick``
+     - Granted
+   * - ``XPocketMP.command.kill.other``
+     - Granted
+   * - ``XPocketMP.command.list``
+     - Granted
+   * - ``XPocketMP.command.op.give``
+     - Granted
+   * - ``XPocketMP.command.op.take``
+     - Granted
+   * - ``XPocketMP.command.particle``
+     - Granted
+   * - ``XPocketMP.command.plugins``
+     - Granted
+   * - ``XPocketMP.command.save.disable``
+     - Granted
+   * - ``XPocketMP.command.save.enable``
+     - Granted
+   * - ``XPocketMP.command.save.perform``
+     - Granted
+   * - ``XPocketMP.command.say``
+     - Granted
+   * - ``XPocketMP.command.seed``
+     - Granted
+   * - ``XPocketMP.command.setworldspawn``
+     - Granted
+   * - ``XPocketMP.command.spawnpoint.other``
+     - Granted
+   * - ``XPocketMP.command.spawnpoint.self``
+     - Granted
+   * - ``XPocketMP.command.status``
+     - Granted
+   * - ``XPocketMP.command.stop``
+     - Granted
+   * - ``XPocketMP.command.teleport.other``
+     - Granted
+   * - ``XPocketMP.command.teleport.self``
+     - Granted
+   * - ``XPocketMP.command.time.add``
+     - Granted
+   * - ``XPocketMP.command.time.query``
+     - Granted
+   * - ``XPocketMP.command.time.set``
+     - Granted
+   * - ``XPocketMP.command.time.start``
+     - Granted
+   * - ``XPocketMP.command.time.stop``
+     - Granted
+   * - ``XPocketMP.command.timings``
+     - Granted
+   * - ``XPocketMP.command.title.other``
+     - Granted
+   * - ``XPocketMP.command.title.self``
+     - Granted
+   * - ``XPocketMP.command.transferserver``
+     - Granted
+   * - ``XPocketMP.command.unban.ip``
+     - Granted
+   * - ``XPocketMP.command.unban.player``
+     - Granted
+   * - ``XPocketMP.command.whitelist.add``
+     - Granted
+   * - ``XPocketMP.command.whitelist.disable``
+     - Granted
+   * - ``XPocketMP.command.whitelist.enable``
+     - Granted
+   * - ``XPocketMP.command.whitelist.list``
+     - Granted
+   * - ``XPocketMP.command.whitelist.reload``
+     - Granted
+   * - ``XPocketMP.command.whitelist.remove``
+     - Granted
+   * - ``XPocketMP.group.user``
+     - Granted
+
+.. _permissions_implied_by_XPocketMP.group.user:
+
+Permissions implied by ``XPocketMP.group.user``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Users granted this permission will also be granted/denied the following permissions implicitly:
+
+.. list-table::
+   :header-rows: 1
+
+   * - Name
+     - Type
+   * - ``XPocketMP.broadcast.user``
+     - Granted
+   * - ``XPocketMP.command.clear.self``
+     - Granted
+   * - ``XPocketMP.command.help``
+     - Granted
+   * - ``XPocketMP.command.kill.self``
+     - Granted
+   * - ``XPocketMP.command.me``
+     - Granted
+   * - ``XPocketMP.command.tell``
+     - Granted
+   * - ``XPocketMP.command.version``
+     - Granted

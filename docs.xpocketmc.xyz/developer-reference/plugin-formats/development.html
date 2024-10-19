@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Development plugin types &mdash; XPocketMP Documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/theme_overrides.css?v=fb5205af" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=3304f9e4"></script>
+        <script src="../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Frequently Asked Questions" href="faq.html" />
+    <link rel="prev" title="Standard plugin types" href="standard.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            XPocketMP
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation &amp; Updating</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basic-usage.html">Basic usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugins.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resourcepacks.html">Resource Packs &amp; Behaviour Packs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../permissions.html">Permissions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contact.html">Contact and Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../links.html">Useful Links</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Frequently Asked Questions &amp; Common Issues</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../faq/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq/connecting.html">Connecting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq/playing.html">Playing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq/plugins.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq/about.html">About XPocketMP</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Issues, Bugs and Crashes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../issues/crashes.html">Crashes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../issues/github-issues.html">Using the GitHub Issue Tracker</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developer Resources</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../developer-resources.html">Developer Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../api-version-spec.html">API versioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../events.html">Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../inventory-transactions.html">Inventory Transactions</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../plugin-formats.html">Plugin formats</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="standard.html">Standard plugin types</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Development plugin types</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#folder">Folder</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#script">Script</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="faq.html">Frequently Asked Questions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plugin-manifest.html"><code class="docutils literal notranslate"><span class="pre">plugin.yml</span></code> fields</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threading-in-php-wtf.html">Threading in PHP - WTF?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../updating-minecraft-protocol.html">Implementing new Minecraft version support in XPocketMP</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer-resources.html#external-development-resources">External development resources</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">XPocketMP</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../developer-resources.html">Developer Reference</a></li>
+          <li class="breadcrumb-item"><a href="../plugin-formats.html">Plugin formats</a></li>
+      <li class="breadcrumb-item active">Development plugin types</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/developer-reference/plugin-formats/development.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="development-plugin-types">
+<span id="development-plugin-formats"></span><h1>Development plugin types<a class="headerlink" href="#development-plugin-types" title="Link to this heading"></a></h1>
+<p>Since the standard types of plugins are usually pretty difficult to work with while developing a plugin, there are more types of plugins that developers can use, but these are <strong>not</strong> recommended for distribution.</p>
+<section id="folder">
+<h2>Folder<a class="headerlink" href="#folder" title="Link to this heading"></a></h2>
+<p><strong>Note:</strong> this plugin format is <strong>not</strong> enabled by default. The <a class="reference external" href="https://github.com/pmmp/DevTools/releases">DevTools</a> plugin is required to load this type of plugin.</p>
+<p>This plugin format is similar to a PHAR plugin in structure, but all the files are in a folder on the disk instead of inside a phar file.
+This gives you easy access to the source code when you’re developing a plugin.</p>
+<p>This plugin format is commonly used for development, because it is just as feature-complete as a PHAR plugin, and can be compiled to a PHAR plugin when you’re ready to release it.</p>
+<p>You can see the <a class="reference external" href="https://github.com/pmmp/ExamplePlugin">ExamplePlugin</a> or any plugin source-code repository to get an idea of how this should look.</p>
+<section id="loading">
+<h3>Loading<a class="headerlink" href="#loading" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>If you don’t have the <a class="reference external" href="https://github.com/pmmp/DevTools/releases">DevTools</a> plugin, <a class="reference external" href="https://github.com/pmmp/DevTools/releases/latest">download its phar file</a> and put it in your <code class="docutils literal notranslate"><span class="pre">plugins</span></code> folder.</p></li>
+<li><p>Move the folder containing the plugin’s source code into your <code class="docutils literal notranslate"><span class="pre">plugins</span></code> folder. The plugin’s folder should contain a <code class="docutils literal notranslate"><span class="pre">plugin.yml</span></code> file and a <code class="docutils literal notranslate"><span class="pre">src</span></code> folder.</p></li>
+<li><p>Restart the server and the plugin will be loaded.</p></li>
+</ol>
+</section>
+</section>
+<section id="script">
+<h2>Script<a class="headerlink" href="#script" title="Link to this heading"></a></h2>
+<p>This plugin format works out of the box, but it’s not recommended for production use, and has less features than a normal plugin would.
+This format is useful if you want to quickly test some features but don’t need a full-blown plugin.</p>
+<p>See <a class="reference external" href="https://forums.XPocketMP.net/threads/new-plugin-scripting-format-draft.8335/">this thread</a> to see how a script plugin looks and works.</p>
+<section id="id1">
+<h3>Loading<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Drop the <cite>.php</cite> file into your <cite>plugins</cite> folder.</p></li>
+<li><p>Restart the server and the plugin will be loaded.</p></li>
+</ol>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2014-2024, XPocketMP Team.
+      <span class="lastupdated">Last updated on Aug 02, 2024.
+      </span></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
